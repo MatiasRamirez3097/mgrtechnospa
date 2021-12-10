@@ -20622,9 +20622,7 @@ __webpack_require__(/*! ./components/Example */ "./resources/js/components/Examp
 
 function App() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.BrowserRouter, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_layout_HomeLayout__WEBPACK_IMPORTED_MODULE_0__["default"], {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_config_Routes__WEBPACK_IMPORTED_MODULE_1__["default"], {})
-    })
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_config_Routes__WEBPACK_IMPORTED_MODULE_1__["default"], {})
   });
 }
 
@@ -20728,33 +20726,50 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 /* harmony import */ var _pages__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../pages */ "./resources/js/pages/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _layout_HomeLayout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../layout/HomeLayout */ "./resources/js/layout/HomeLayout.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
 
+
+var routes = [{
+  path: '/',
+  exact: true,
+  layout: _layout_HomeLayout__WEBPACK_IMPORTED_MODULE_1__["default"],
+  component: _pages__WEBPACK_IMPORTED_MODULE_0__.Home
+}, {
+  path: '/compras',
+  layout: _layout_HomeLayout__WEBPACK_IMPORTED_MODULE_1__["default"],
+  exact: true,
+  component: _pages__WEBPACK_IMPORTED_MODULE_0__.Compras
+}, {
+  path: '/ventas',
+  exact: true,
+  component: _pages__WEBPACK_IMPORTED_MODULE_0__.Ventas
+}, {
+  path: '/clientes',
+  layout: _layout_HomeLayout__WEBPACK_IMPORTED_MODULE_1__["default"],
+  exact: true,
+  component: _pages__WEBPACK_IMPORTED_MODULE_0__.Clientes
+}];
 
 var CfgRoutes = function CfgRoutes() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Routes, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
-      exact: true,
-      path: "/",
-      element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_pages__WEBPACK_IMPORTED_MODULE_0__.Home, {})
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
-      exact: true,
-      path: "/clientes",
-      element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_pages__WEBPACK_IMPORTED_MODULE_0__.Clientes, {})
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
-      exact: true,
-      path: "/compras",
-      element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_pages__WEBPACK_IMPORTED_MODULE_0__.Compras, {})
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
-      exact: true,
-      path: "/ventas",
-      element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_pages__WEBPACK_IMPORTED_MODULE_0__.Ventas, {})
-    })]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Routes, {
+    children: routes.map(function (route, i) {
+      var Layout = route.layout || react__WEBPACK_IMPORTED_MODULE_2__.Fragment;
+      var Component = route.component;
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Route, {
+        path: route.path,
+        exact: route.exact,
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Layout, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Component, {})
+        })
+      }, i);
+    })
   });
 };
 
